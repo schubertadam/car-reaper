@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => '/', 'as' => 'login.'], function () {
@@ -11,3 +12,5 @@ Route::group(['prefix' => '/', 'as' => 'login.'], function () {
 Route::get('dashboard', function () {
     return 'dashboard';
 });
+
+Route::post('logout', LogoutController::class)->name('logout');

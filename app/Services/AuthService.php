@@ -41,4 +41,11 @@ class AuthService
 
         RateLimiter::clear($throttleKey); // in case of successful login, reset the rate limiter
     }
+
+    public function logout(): void
+    {
+        auth()->logout();
+        session()->invalidate();
+        session()->regenerateToken();
+    }
 }
